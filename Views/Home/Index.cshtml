@@ -1,0 +1,74 @@
+﻿@model IEnumerable<SISGUILLEN.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+
+
+
+<h1>Usuarios</h1>
+
+<p class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a asp-action="Create" class="btn btn-primary">Nuevo</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaNacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cargo!.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Perfil!.Nombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cargo!.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Perfil!.Nombre)
+                </td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-primary btn-sm" asp-route-id="@item.UsuarioId"><i class="bi bi-pencil"></i></a>
+                    <a asp-action="Delete" class="btn btn-danger btn-sm" asp-route-id="@item.UsuarioId"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
