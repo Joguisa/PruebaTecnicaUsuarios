@@ -45,14 +45,21 @@
 
             <div class="mb-3">
                 <label asp-for="PerfilId" class="control-label">Perfil</label>
-                <select asp-for="PerfilId" class="form-select" asp-items="ViewBag.PerfilId"></select>
+                <select asp-for="PerfilId" class="form-select" asp-items="ViewBag.PerfilId">
+                    <option value="" selected disabled>-- Seleccione un perfil --</option>
+                </select>
                 <span asp-validation-for="PerfilId" class="text-danger"></span>
             </div>
+
             <div class="mb-3">
                 <label asp-for="CargoId" class="control-label">Seguro</label>
-                <select asp-for="CargoId" class="form-select" asp-items="ViewBag.CargoId"></select>
+                <select asp-for="CargoId" class="form-select" asp-items="ViewBag.CargoId">
+                    <option value="" selected disabled>-- Seleccione un cargo --</option>
+                </select>
                 <span asp-validation-for="CargoId" class="text-danger"></span>
             </div>
+
+
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Agregar</button>
                 <a class="btn btn-info" asp-action="Index"> Regresar</a>

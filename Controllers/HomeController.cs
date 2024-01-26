@@ -68,7 +68,6 @@ namespace SISGUILLEN.Controllers
                     if (_context.Usuarios.Any(u => u.Nombre == usuario.Nombre && u.Apellido == usuario.Apellido && u.Edad == usuario.Edad && u.Direccion == usuario.Direccion && u.FechaNacimiento == usuario.FechaNacimiento))
                     {
                         ModelState.AddModelError(string.Empty, "Ya existe un usuario con los mismos detalles.");
-                        ConfigureViewDataForEdit(usuario);
                         return View(usuario);
                     }
 
@@ -81,8 +80,6 @@ namespace SISGUILLEN.Controllers
                     HandleUniqueConstraintViolation(ex, usuario);
                 }
             }
-
-            ConfigureViewDataForEdit(usuario);
             return View(usuario);
         }
 
@@ -152,8 +149,6 @@ namespace SISGUILLEN.Controllers
             return View(usuario);
         }
 
-
-
         private SelectList GetSelectListForPerfil(int? selectedValue = null)
         {
             return new SelectList(_context.Perfiles, "PerfilId", "Nombre", selectedValue);
@@ -221,7 +216,13 @@ namespace SISGUILLEN.Controllers
             }
 
             // Cambiar el estado en lugar de eliminar físicamente
-            usuario.Estado = 0;
+            if (usuario.Estado == 1)
+            {
+                usuario.Estado = 0;
+            } else
+            {
+                usuario.Estado = 1;
+            }
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
