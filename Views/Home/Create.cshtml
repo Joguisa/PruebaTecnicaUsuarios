@@ -8,65 +8,71 @@
 
 <hr />
 
-<div class="row">
-    <div class="col-md-4">
+<div class="row align-items-center justify-content-center">
+    <div class="col-md-8">
         <form asp-action="Create" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="mb-3">
-                <label asp-for="Nombre" class="control-label">Nombre</label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Columna izquierda -->
+                    <div class="mb-3">
+                        <label asp-for="Nombre" class="control-label">Nombre</label>
+                        <input asp-for="Nombre" class="form-control"/>
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="Apellido" class="control-label">Apellido</label>
+                        <input asp-for="Apellido" class="form-control"/>
+                        <span asp-validation-for="Apellido" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="Edad" class="control-label">Edad</label>
+                        <input asp-for="Edad" class="form-control"/>
+                        <span asp-validation-for="Edad" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="Direccion" class="control-label">Dirección</label>
+                        <input asp-for="Direccion" class="form-control"/>
+                        <span asp-validation-for="Direccion" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <!-- Columna derecha -->
+                    <div class="mb-3">
+                        <label asp-for="FechaNacimiento" class="control-label">Fecha de Nacimiento</label>
+                        <input asp-for="FechaNacimiento" type="date" class="form-control"/>
+                        <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="PerfilId" class="control-label">Perfil</label>
+                        <select asp-for="PerfilId" class="form-select" asp-items="ViewBag.PerfilId">
+                            <option value="" selected disabled>-- Seleccione un perfil --</option>
+                        </select>
+                        <span asp-validation-for="PerfilId" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="CargoId" class="control-label">Seguro</label>
+                        <select asp-for="CargoId" class="form-select" asp-items="ViewBag.CargoId">
+                            <option value="" selected disabled>-- Seleccione un cargo --</option>
+                        </select>
+                        <span asp-validation-for="CargoId" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-
-            <div class="mb-3">
-                <label asp-for="Apellido" class="control-label">Apellido</label>
-                <input asp-for="Apellido" class="form-control" />
-                <span asp-validation-for="Apellido" class="text-danger"></span>
-            </div>
-
-            <div class="mb-3">
-                <label asp-for="Edad" class="control-label">Edad</label>
-                <input asp-for="Edad" class="form-control" />
-                <span asp-validation-for="Edad" class="text-danger"></span>
-            </div>
-
-            <div class="mb-3">
-                <label asp-for="Direccion" class="control-label">Dirección</label>
-                <input asp-for="Direccion" class="form-control" />
-                <span asp-validation-for="Direccion" class="text-danger"></span>
-            </div>
-
-            <div class="mb-3">
-                <label asp-for="FechaNacimiento" class="control-label">Fecha de Nacimiento</label>
-                <input asp-for="FechaNacimiento" type="date" class="form-control" />
-                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
-            </div>
-
-            <div class="mb-3">
-                <label asp-for="PerfilId" class="control-label">Perfil</label>
-                <select asp-for="PerfilId" class="form-select" asp-items="ViewBag.PerfilId">
-                    <option value="" selected disabled>-- Seleccione un perfil --</option>
-                </select>
-                <span asp-validation-for="PerfilId" class="text-danger"></span>
-            </div>
-
-            <div class="mb-3">
-                <label asp-for="CargoId" class="control-label">Seguro</label>
-                <select asp-for="CargoId" class="form-select" asp-items="ViewBag.CargoId">
-                    <option value="" selected disabled>-- Seleccione un cargo --</option>
-                </select>
-                <span asp-validation-for="CargoId" class="text-danger"></span>
-            </div>
-
-
-            <div class="mb-3">
+            <div class="text-center">
                 <button type="submit" class="btn btn-primary">Agregar</button>
                 <a class="btn btn-info" asp-action="Index"> Regresar</a>
             </div>
         </form>
     </div>
 </div>
+
 
 
 

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -18,13 +17,16 @@ namespace SISGUILLEN.Controllers
         // GET: CargoController
         public async Task<IActionResult> Index()
         {
-            if (_context.Cargos == null)
+            var cargos = await _context.Cargos.ToListAsync();
+    
+            if (cargos is null)
             {
                 return Problem("Entity set 'BD_GUILLENContext.Cargos' is null.");
             }
-            var cargos = await _context.Cargos.ToListAsync();
+
             return View(cargos);
         }
+
 
         // GET: CargoController/Create
         public ActionResult Create()
@@ -135,7 +137,7 @@ namespace SISGUILLEN.Controllers
             return View(cargo);
         }
 
-        private SelectList GetSelectListForCargo(int? selectedValue = null)
+        private SelectList GetSelectListForCargo(int selectedValue)
         {
             return new SelectList(_context.Cargos, "CargoId", "Nombre", selectedValue);
         }
@@ -164,7 +166,7 @@ namespace SISGUILLEN.Controllers
         // GET: CargoController/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Cargos == null)
+            if (id == null)
             {
                 return NotFound();
             }
