@@ -39,8 +39,9 @@ bld/
 #wwwroot/
 
 # Archivos json con información delicada
-appsettings.json
 appsettings.Development.json
+appsettings.json
+
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/

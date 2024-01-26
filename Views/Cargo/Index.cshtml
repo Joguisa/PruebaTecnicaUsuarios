@@ -1,13 +1,13 @@
-﻿@model IEnumerable<SISGUILLEN.Models.Perfile>
+﻿@model IEnumerable<SISGUILLEN.Models.Cargo>
 
 @{
-    ViewData["Title"] = "Perfiles";
+    ViewData["Title"] = "Cargos";
 }
 
-<h1>Perfiles</h1>
+<h1>Cargos</h1>
 
 <p class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <a asp-action="Create" class="btn btn-primary"> Agregar Perfil</a>
+    <a asp-action="Create" class="btn btn-primary"> Agregar Cargo</a>
 </p>
 
 <table class="table table-striped">
@@ -36,8 +36,8 @@
                 </td>
                 <td>
                     <div class="btn-group" role="group">
-                        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.PerfilId"><i class="bi bi-pencil"></i></a>
-                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.PerfilId"><i class="bi bi-trash"></i></a>
+                        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.CargoId"><i class="bi bi-pencil"></i></a>
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.CargoId"><i class="bi bi-trash"></i></a>
                     </div>
                 </td>
             </tr>
